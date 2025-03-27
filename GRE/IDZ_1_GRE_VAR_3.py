@@ -63,3 +63,26 @@ shooter2_p = 0.6
 # Используем формулу полной вероятности
 hit_p = (shooter1_p * (1 - shooter1_p)) + (shooter1_p * shooter2_p) + (shooter2_p * (1 - shooter2_p))
 print(f"Вероятность попадания хотя бы одним стрелком: {hit_p}")
+
+print(f"Задание 6")
+from scipy.stats import binom
+# На швейной фабрике пять цехов, вероятность выполнения плана за месяц у каждого цеха равна 0,88.
+# Найти вероятность того, что: а) только один цех не выполнит план; б) два цеха не выполнят план; в) все пять цехов не выполнят план.
+
+quantity = 5
+factory_p = 0.88
+q = 1 -factory_p
+
+# Формула биномиального распределения
+p_a = comb(quantity, quantity-1) * (factory_p ** (quantity-1)) * q
+print(f"Вероятность того, что только один цех не выполнит план: {p_a:.4f}")
+# prob_one_not_complete = binom.pmf(4, 5, factory_p)
+# print(f"Вероятность того, что только один цех не выполнит план: {prob_one_not_complete:.4f}")
+p_b = comb(quantity, quantity-2) * (factory_p ** (quantity-2)) * (q ** 2)
+print(f"Вероятность того, что только один цех не выполнит план: {p_b:.4f}")
+# prob_one_not_complete = binom.pmf(3, 5, factory_p)
+# print(f"Вероятность того, что только один цех не выполнит план: {prob_one_not_complete:.4f}")
+p_c = comb(quantity, quantity-5) * (factory_p ** (quantity-5)) * (q ** 5)
+print(f"Вероятность того, что только один цех не выполнит план: {p_c:.8f}")
+# prob_all_not_complete = binom.pmf(0, 5, factory_p)
+# print(f"Вероятность того, что все пять цехов не выполнят план: {prob_all_not_complete:.8f}")
