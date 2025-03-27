@@ -33,4 +33,4 @@ Weapon2p = 0.8
 WeaponBothp = 0.38
 
 Weapon1p = Weapon2p/WeaponBothp
-print(f"Вероятность попадания первым орудием")
+print(f"Вероятность попадания первым орудием {Weapon1p:.4f}")
