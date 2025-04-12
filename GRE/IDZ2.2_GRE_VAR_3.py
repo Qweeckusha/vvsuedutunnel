@@ -26,7 +26,7 @@ def math_wait():
     integral = lambda  x: x * f(x)
     return quad(integral, 0, 4)[0]
 
-#
+# D(Y)=M(Y^2)−[M(Y)]^2
 def disperse(mean_value):
     integral = lambda x: x**2 * f(x)
     mean_square = quad(integral, 0, 4)[0]
@@ -84,7 +84,7 @@ def math_wait():
     integral = lambda x: x * f(x)
     return quad(integral, 0, 9)[0]
 
-#
+# D(Y)=M(Y^2)−[M(Y)]^2
 def disperse(mean_value):
     integral = lambda x: x**2 * f(x)
     mean_square = quad(integral, 0, 9)[0]
