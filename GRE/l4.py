@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import binom
 
-print("Task 1")
+print("---------------- 1 ----------------")
 minimum = 6
 total = 45
 other = total-minimum # 36
@@ -16,7 +16,7 @@ print(f"Probability P(X=4): {p5:.9f}")
 p6 = (comb(minimum, 6) * comb(other, minimum-6))/(comb(total, minimum))
 print(f"Probability P(X=4): {p6:.9f}\n")
 
-print("Task 2")
+print("---------------- 2 ----------------")
 calls = 5
 p_accept = 0.4
 q = 1 - p_accept
@@ -31,7 +31,7 @@ print(f"Probability P(X=4): {round(p4, ndigits=4)}")
 p5 = 1 - (p1 + p2 + p3 + p4)
 print(f"Probability P(X=5): {round(p5, ndigits=4)}\n")
 
-print("Task 3")
+print("---------------- 3 ----------------")
 p_A = 0.7
 p_B = 0.9
 q_A = 1 - p_A
@@ -43,7 +43,7 @@ print(f"Probabilty P(X=1): {round(p1, ndigits=2)}")
 p2 = p_A * p_B
 print(f"Probabilty P(X=2): {round(p2, ndigits=2)}")
 
-print("Task 4")
+print("---------------- 4 ----------------")
 # Законы распределения X и Y
 x_values = [2, 4, 6, 8]
 p_x = [0.4, 0.2, 0.1, 0.3]
@@ -79,11 +79,11 @@ z_values, probabilities = zip(*z_sorted)
 plt.plot(z_values, probabilities, marker='o')
 plt.xlabel('Values Z')
 plt.ylabel('Probability P(Z)')
-plt.title('Spread Z')
+plt.title('#4 Spread Z')
 plt.grid(True)
 plt.show()
 
-print("Task 5")
+print("---------------- 5 ----------------")
 # Законы распределения X и Y
 x_values = [0, 2, 4]
 p_x = [0.5, 0.2, 0.3]
@@ -119,11 +119,11 @@ z_values, probabilities = zip(*z_sorted)
 plt.plot(z_values, probabilities, marker='o')
 plt.xlabel('Values Z')
 plt.ylabel('Probability P(Z)')
-plt.title('Spread Z = X * Y')
+plt.title('#5 Spread Z = X * Y')
 plt.grid(True)
 plt.show()
 
-print("Task 6")
+print("---------------- 6 ----------------")
 # Законы распределения X и Y
 x_values = [-4, 0, 4]
 p_x = [0.1, 0.5, 0.4]
@@ -159,11 +159,11 @@ z_values, probabilities = zip(*z_sorted)
 plt.plot(z_values, probabilities, marker='o')
 plt.xlabel('Values Z')
 plt.ylabel('Probability P(Z)')
-plt.title('Spread Z = (X + Y) / 2')
+plt.title('#6 Spread Z = (X + Y) / 2')
 plt.grid(True)
 plt.show()
 
-print("Task 7")
+print("---------------- 7 ----------------")
 
 # Параметры биномиального распределения
 n = 3  # Число испытаний
@@ -182,11 +182,11 @@ for x, prob in zip(x_values, probabilities):
 plt.bar(x_values, probabilities, tick_label=x_values)
 plt.xlabel('Values X')
 plt.ylabel('Probability P(X)')
-plt.title('Supreme quality spread of cans')
+plt.title('#7 Supreme quality spread of cans')
 plt.grid(axis='y')
 plt.show()
 
-print("Task 8")
+print("---------------- 8 ----------------")
 # Значения X и их вероятности (примерные данные из графика)
 x_values = [0, 1, 2, 3, 4]
 probabilities = [0.1, 0.2, 0.3, 0.2, 0.2]
@@ -200,11 +200,11 @@ for x, prob in zip(x_values, probabilities):
 plt.bar(x_values, probabilities, tick_label=x_values)
 plt.xlabel('Values X')
 plt.ylabel('Probability P(X)')
-plt.title('Spread X')
+plt.title('#8 Spread X')
 plt.grid(True)
 plt.show()
 
-print("Task 9")
+print("---------------- 9 ----------------")
 
 # Значения X и их вероятности
 x_values = [-2, 0, 3, 7]
@@ -263,14 +263,14 @@ assert len(x_points) == len(y_points), "Массивы x_points и y_points до
 # Построение графика
 plt.step(x_points, y_points, where='post', label='$F(x)$')  # Используем 'post' для правильной ступеньки
 plt.scatter(x_values, F, color='red', label='Точки разрыва')  # Отмечаем точки разрыва
-plt.title('График функции распределения $F(x)$')
+plt.title('#9 График функции распределения $F(x)$')
 plt.xlabel('$x$')
 plt.ylabel('$F(x)$')
 plt.grid(True)
 plt.legend()
 plt.show()
 
-print("Task 10")
+print("---------------- 10 ----------------")
 # Значения X и их вероятности
 x_values = [12, 16, 21, 26, 30]
 p_values = [0.2, 0.1, 0.4, 0.2, 0.1]
@@ -328,7 +328,7 @@ assert len(x_points) == len(y_points), "Массивы x_points и y_points до
 # Построение графика
 plt.step(x_points, y_points, where='post', label='$F(x)$')  # Используем 'post' для правильной ступеньки
 plt.scatter(x_values, F, color='red', label='Точки разрыва')  # Отмечаем точки разрыва
-plt.title('График функции распределения $F(x)$')
+plt.title('#10 График функции распределения $F(x)$')
 plt.xlabel('$x$')
 plt.ylabel('$F(x)$')
 plt.grid(True)
