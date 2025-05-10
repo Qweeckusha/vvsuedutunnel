@@ -16,24 +16,20 @@ for i in range(N):
         weight = np.random.randint(2, 20)  # Случайный вес ребра
         G.add_edge(i, j, weight=weight)
 
-# Убедимся, что граф связный
 assert nx.is_connected(G), "Граф должен быть связным"
 
 # Построение минимального остовного дерева (МОД) с использованием алгоритма Краскала
 T = nx.minimum_spanning_tree(G, weight='weight')
 
-# Визуализация
+# ==== Визуализация ====
 pos = nx.spring_layout(G)  # Получаем позиции вершин для обоих графов
 
-# Рисуем исходный граф в сером цвете
 plt.figure(figsize=(20, 16))
-nx.draw(G, pos, with_labels=True, node_color='lightgray', node_size=200, edge_color='gray', width=1)
+nx.draw(G, pos, with_labels=True, node_color='lightgray', node_size=200, edge_color='lightgray', width=1)
 
 # Отображаем веса ребер исходного графа
 edge_labels = nx.get_edge_attributes(G, 'weight')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color='black', font_size=16)
-
-plt.title("Исходный граф")
 
 # Наложение МОД на исходный граф
 nx.draw_networkx_nodes(T, pos, node_color='black', node_size=600)

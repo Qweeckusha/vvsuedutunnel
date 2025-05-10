@@ -83,20 +83,20 @@ pos = nx.spring_layout(G)  # Получаем позиции вершин для
 
 # Рисуем исходный граф серыми дугами
 plt.figure(figsize=(16, 16))
-nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=500, font_size=10, edge_color='lightgray', width=0.5)
+nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=500, font_size=14, edge_color='lightgray', width=0.5)
 
 
 plt.title("Исходный граф")
 
 # Наложение МОД на исходный граф
 node_colors = ['red' if node == root else 'darkgray' for node in T.nodes]
-nx.draw_networkx_nodes(T, pos, node_color=node_colors, node_size=500)
+nx.draw_networkx_nodes(T, pos, node_color=node_colors, node_size=600)
 nx.draw_networkx_edges(T, pos, edge_color='black', arrows=True, arrowstyle='-|>', arrowsize=16, width=1)
-nx.draw_networkx_labels(T, pos, font_size=10)
+nx.draw_networkx_labels(T, pos, font_size=14)
 
 # Отображаем веса ребер МОД
 edge_labels_mod = nx.get_edge_attributes(T, 'weight')
-nx.draw_networkx_edge_labels(T, pos, edge_labels=edge_labels_mod, font_color='green', font_size=8)
+nx.draw_networkx_edge_labels(T, pos, edge_labels=edge_labels_mod, font_color='black', font_size=14)
 
 # Отображение результата
 plt.title("Исходный граф и минимальное остовное дерево (МОД)")
