@@ -8,28 +8,28 @@ minimum = 6
 total = 45
 other = total-minimum # 36
 p3 = (comb(minimum, 3) * comb(other, minimum-3))/(comb(total, minimum))
-print(f"Probability P(X=3): {p3:.9f}")
+print(f"Вероятность P(X=3): {p3:.9f}")
 p4 = (comb(minimum, 4) * comb(other, minimum-4))/(comb(total, minimum))
-print(f"Probability P(X=4): {p4:.9f}")
+print(f"Вероятность P(X=4): {p4:.9f}")
 p5 = (comb(minimum, 5) * comb(other, minimum-5))/(comb(total, minimum))
-print(f"Probability P(X=4): {p5:.9f}")
+print(f"Вероятность P(X=5): {p5:.9f}")
 p6 = (comb(minimum, 6) * comb(other, minimum-6))/(comb(total, minimum))
-print(f"Probability P(X=4): {p6:.9f}\n")
+print(f"Вероятность P(X=6): {p6:.9f}\n")
 
 print("---------------- 2 ----------------")
 calls = 5
 p_accept = 0.4
 q = 1 - p_accept
 p1 = q**(calls-(calls+1-1)) * 0.4
-print(f"Probability P(X=1): {p1}")
+print(f"Вероятность P(X=1): {p1}")
 p2 = q**(calls-(calls+1-2)) * 0.4
-print(f"Probability P(X=2): {p2}")
+print(f"Вероятность P(X=2): {p2}")
 p3 = q**(calls-(calls+1-3)) * 0.4
-print(f"Probability P(X=3): {p3}")
+print(f"Вероятность P(X=3): {p3}")
 p4 = q**(calls-(calls+1-4)) * 0.4
-print(f"Probability P(X=4): {round(p4, ndigits=4)}")
+print(f"Вероятность P(X=4): {round(p4, ndigits=4)}")
 p5 = 1 - (p1 + p2 + p3 + p4)
-print(f"Probability P(X=5): {round(p5, ndigits=4)}\n")
+print(f"Вероятность P(X=5): {round(p5, ndigits=4)}\n")
 
 print("---------------- 3 ----------------")
 p_A = 0.7
@@ -37,11 +37,11 @@ p_B = 0.9
 q_A = 1 - p_A
 q_B = 1 - p_B
 p0 = q_A * q_B
-print(f"Probabilty P(X=0): {p0}")
+print(f"Вероятность P(X=0): {p0}")
 p1 = p_A * q_B + q_A * p_B
-print(f"Probabilty P(X=1): {round(p1, ndigits=2)}")
+print(f"Вероятность P(X=1): {round(p1, ndigits=2)}")
 p2 = p_A * p_B
-print(f"Probabilty P(X=2): {round(p2, ndigits=2)}")
+print(f"Вероятность P(X=2): {round(p2, ndigits=2)}")
 
 print("---------------- 4 ----------------")
 # Законы распределения X и Y
@@ -70,16 +70,16 @@ for x in x_values:
 z_sorted = sorted(z_distribution.items())
 
 # Выводим результат
-print("Spread row Z:")
+print("Ряд распределения Z:")
 for z, prob in z_sorted:
     print(f"Z = {z}: P(Z = {z}) = {round(prob, ndigits=4)}")
 
 # Построение многоугольника распределения
 z_values, probabilities = zip(*z_sorted)
 plt.plot(z_values, probabilities, marker='o')
-plt.xlabel('Values Z')
-plt.ylabel('Probability P(Z)')
-plt.title('#4 Spread Z')
+plt.xlabel('Значения Z')
+plt.ylabel('Вероятность P(Z)')
+plt.title('#4 Распределение Z')
 plt.grid(True)
 plt.show()
 
@@ -110,16 +110,16 @@ for x in x_values:
 z_sorted = sorted(z_distribution.items())
 
 # Выводим результат
-print("Spread row Z = X * Y:")
+print("Ряд распределения Z = X * Y:")
 for z, prob in z_sorted:
     print(f"Z = {z}: P(Z = {z}) = {round(prob, ndigits=4)}")
 
 # Построение многоугольника распределения
 z_values, probabilities = zip(*z_sorted)
 plt.plot(z_values, probabilities, marker='o')
-plt.xlabel('Values Z')
-plt.ylabel('Probability P(Z)')
-plt.title('#5 Spread Z = X * Y')
+plt.xlabel('Значения Z')
+plt.ylabel('Вероятность P(Z)')
+plt.title('#5 Распределение Z = X * Y')
 plt.grid(True)
 plt.show()
 
@@ -150,16 +150,16 @@ for x in x_values:
 z_sorted = sorted(z_distribution.items())
 
 # Выводим результат
-print("Spread row Z = (X + Y) / 2:")
+print("Ряд распределения Z = (X + Y) / 2:")
 for z, prob in z_sorted:
     print(f"Z = {z}: P(Z = {z}) = {prob}")
 
 # Построение многоугольника распределения
 z_values, probabilities = zip(*z_sorted)
 plt.plot(z_values, probabilities, marker='o')
-plt.xlabel('Values Z')
-plt.ylabel('Probability P(Z)')
-plt.title('#6 Spread Z = (X + Y) / 2')
+plt.xlabel('Значения Z')
+plt.ylabel('Вероятность P(Z)')
+plt.title('#6 Распределение Z = (X + Y) / 2')
 plt.grid(True)
 plt.show()
 
@@ -174,15 +174,15 @@ x_values = range(n + 1)
 probabilities = [binom.pmf(k, n, p) for k in x_values]
 
 # Выводим результат
-print("Spread row X:")
+print("Ряд распределения X:")
 for x, prob in zip(x_values, probabilities):
     print(f"X = {x}: P(X = {x}) = {prob:.4f}")
 
 # Построение многоугольника распределения
 plt.bar(x_values, probabilities, tick_label=x_values)
-plt.xlabel('Values X')
-plt.ylabel('Probability P(X)')
-plt.title('#7 Supreme quality spread of cans')
+plt.xlabel('Значения X')
+plt.ylabel('Вероятность P(X)')
+plt.title('#7 Распределение банок высшего качества')
 plt.grid(axis='y')
 plt.show()
 
@@ -192,15 +192,15 @@ x_values = [0, 1, 2, 3, 4]
 probabilities = [0.1, 0.2, 0.3, 0.2, 0.2]
 
 # Выводим закон распределения
-print("Spread row X:")
+print("Ряд распределения X:")
 for x, prob in zip(x_values, probabilities):
     print(f"X = {x}: P(X = {x}) = {prob}")
 
 # Построение многоугольника распределения
 plt.bar(x_values, probabilities, tick_label=x_values)
-plt.xlabel('Values X')
-plt.ylabel('Probability P(X)')
-plt.title('#8 Spread X')
+plt.xlabel('Значения X')
+plt.ylabel('Вероятность P(X)')
+plt.title('#8 Распределение X')
 plt.grid(True)
 plt.show()
 
