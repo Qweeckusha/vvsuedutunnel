@@ -119,47 +119,32 @@ for point in test_points:
 
 task(5)
 
-# Объявляем символы
-x1, x2, p1, p2 = symbols('x1 x2 p1 p2')
-M_X = 3.2
-D_X = 0.16
-# Условия задачи
-eq1 = Eq(p1 + p2, 0.8)          # p1 + p2 = 0.8
-eq2 = Eq(x1 * p1 + x2 * p2, M_X) # x1*p1 + x2*p2 = 3.2
-eq3 = Eq(x1**2 * p1 + x2**2 * p2, 10.4) # x1^2*p1 + x2^2*p2 = 10.4
+from sympy import symbols, Eq, solve
 
-# Перебираем возможные значения x1 и x2
-solution_found = False
-for i in range(0, 10):  # Расширяем диапазон значений x1
-    for j in range(0, 10):  # Расширяем диапазон значений x2
-        if i != j:  # Значения x1 и x2 должны быть разными
-            # Подставляем x1 и x2 в уравнения
-            eq2_sub = eq2.subs({x1: i, x2: j})
-            eq3_sub = eq3.subs({x1: i, x2: j})
+# Определяем символы
+x1, x2 = symbols('x1 x2')
 
-            # Решаем систему уравнений
-            solution = solve((eq1, eq2_sub, eq3_sub), (p1, p2))
-            # print(i, j, solution)
+# Заданные параметры
+p1 = 0.8
+p2 = 0.2
+mean = 3.2
+variance = 0.16
 
-            # Проверяем, что решение найдено
-            if solution:
-                print(i, j, solution)
-                # Извлекаем значения p1 и p2
-                p1_val = solution[p1]
-                p2_val = solution[p2]
+# Уравнение для математического ожидания
+eq1 = Eq(p1 * x1 + p2 * x2, mean)
 
-                # Проверяем, что вероятности неотрицательны
-                if p1_val >= 0 and p2_val >= 0:
-                    print(f"Решение найдено:")
-                    print(f"x1 = {i}, x2 = {j}")
-                    print(f"p1 = {p1_val:.4f}, p2 = {p2_val:.4f}")
-                    solution_found = True
-                    break
-    if solution_found:
-        break
+# Уравнение для дисперсии (M(X^2) - [M(X)]^2 = variance)
+# M(X^2) = p1 * x1^2 + p2 * x2^2
+# [M(X)]^2 = mean^2
+eq2 = Eq(p1 * x1**2 + p2 * x2**2, variance + mean**2)
 
-if not solution_found:
-    print("Решение не найдено для всех значений x1 и x2.")
+# Решаем систему уравнений
+solutions = solve((eq1, eq2), (x1, x2))
+
+# Выводим результаты
+print("Решения:")
+for sol in solutions:
+    print(f"x1 = {sol[0]:.1f}, x2 = {sol[1]:.1f}")
 
 task(6)
 
